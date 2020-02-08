@@ -57,6 +57,8 @@ playerMoves.on("child_changed", function(data){
   console.log("Error: "+error.code);
 })
 
+// Testing changes
+
 //Get health value of player A
 var playerA = defaultDatabase.ref("players/A");
 playerA.once("value", function(data){
