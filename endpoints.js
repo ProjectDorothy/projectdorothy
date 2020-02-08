@@ -1,1 +1,1 @@
-include shit
+const xhttp = new XMLHttpRequest();
