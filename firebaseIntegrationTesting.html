@@ -25,14 +25,47 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
 
+//Listening 
 var moveRef = firebase.database().ref("moves/");
 moveRef.on("child_changed", function(data) {
-  var moveInfo = data.val();
-   console.log("Move Number :"+moveInfo.moveNumber);
+  var moveNumber = data.val();
+   console.log("Move Number :"+moveNumber);
+   console.log(typeof moveNumber)
 }, function (error) {
    console.log("Error: " + error.code);
 });
 
+// Code that gets pose of player B
+var playerA = firebase.database().ref("players/A");
+
+playerA.once("value", function(data){
+  var health = data.val();
+  console.log("Health: "+health.health);
+}, function(error){
+  console.log("Error: "+ error.code);
+});
+
+/*
+playerA.on("value", function(data){
+  var health = data.val();
+  console.log("Health: "+health.health);
+}, function(error){
+  console.log("Error: "+ error.code);
+});
+*/
+
+updateHealth();
+
+
+function updateHealth(){
+  console.log("Updating value");
+
+  playerA.update(
+    {
+      "health":100
+    }
+  )
+}
 
 // var playersRef = firebase.database().ref("moves/");
 // playersRef.on("child_changed", function(data) {
