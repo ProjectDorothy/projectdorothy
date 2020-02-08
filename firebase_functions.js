@@ -70,6 +70,16 @@ function updateHealthPlayerA(healthValue){
     )
 }
 
+function updateHealthPlayerB(healthValue){
+    console.log("Updating value");
+
+    playerB.update(
+        {
+            "health":healthValue
+        }
+    )
+}
+
 function reset_game() {
     defaultDatabase.ref('/moveNo').update({'moveNumber' : 0});
     defaultDatabase.ref('/players/A').update({'health':100});
