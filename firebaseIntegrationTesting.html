@@ -1,99 +1,99 @@
 <body>
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
 
-  <!-- Add Firebase products that you want to use -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script> -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script> -->
-  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
+<!-- Add Firebase products that you want to use -->
+<!-- <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script> -->
+<!-- <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
 
 <script>
-const firebaseConfig = {
-    apiKey: "AIzaSyDQ3gaHvcFpEkusY-VAS2sgUru_terdUVA",
-    authDomain: "hitmeservermate.firebaseapp.com",
-    databaseURL: "https://hitmeservermate.firebaseio.com",
-    projectId: "hitmeservermate",
-    storageBucket: "hitmeservermate.appspot.com",
-    messagingSenderId: "169795236310",
-    appId: "1:169795236310:web:3a18388d3336351bd7b477"
-  };
-  firebase.initializeApp(firebaseConfig);
+    const firebaseConfig = {
+        apiKey: "AIzaSyDQ3gaHvcFpEkusY-VAS2sgUru_terdUVA",
+        authDomain: "hitmeservermate.firebaseapp.com",
+        databaseURL: "https://hitmeservermate.firebaseio.com",
+        projectId: "hitmeservermate",
+        storageBucket: "hitmeservermate.appspot.com",
+        messagingSenderId: "169795236310",
+        appId: "1:169795236310:web:3a18388d3336351bd7b477"
+    };
+    firebase.initializeApp(firebaseConfig);
 
-  var defaultDatabase = firebase.database();
+    var defaultDatabase = firebase.database();
 
-//Get available moves once
-var moveRef = defaultDatabase.ref("moves/");
-moveRef.once("value", function(data) {
-  var values = data.val();
-  console.log(typeof values);
-  console.log(values);
+    //Get available moves once
+    var moveRef = defaultDatabase.ref("moves/");
+    moveRef.once("value", function(data) {
+        var values = data.val();
+        console.log(typeof values);
+        console.log(values);
 
-   for (var property in values) {
-     console.log(Object.getOwnPropertyDescriptor(values,property).value.damage);
-   }
+        for (var property in values) {
+            console.log(Object.getOwnPropertyDescriptor(values,property).value.damage);
+        }
 
-}, function (error) {
-   console.log("Error: " + error.code);
-});
+    }, function (error) {
+        console.log("Error: " + error.code);
+    });
 
-/*
-====================================
-CODE THAT GETS POSE OF PLAYER B
-{----INSERT HERE----}
-====================================
-*/
+    /*
+    ====================================
+    CODE THAT GETS POSE OF PLAYER B
+    {----INSERT HERE----}
+    ====================================
+    */
 
-//Subscription to notify when number of moves changes
-var playerMoves = defaultDatabase.ref("moveNo/");
-playerMoves.on("value", function(data){
-  var moveNumber = data.val();
-  console.log("Number of moves: "+moveNumber.moveNumber); 
-}, function(error){
-  console.log("Error: "+error.code);
-})
+    //Subscription to notify when number of moves changes
+    var playerMoves = defaultDatabase.ref("moveNo/");
+    playerMoves.on("value", function(data){
+        var moveNumber = data.val();
+        console.log("Number of moves: "+moveNumber.moveNumber);
+    }, function(error){
+        console.log("Error: "+error.code);
+    })
 
-//Get health value of player A
-var playerA = defaultDatabase.ref("players/A");
-playerA.on("value", function(data){
-  var health = data.val();
-  console.log("Health player A: "+health.health);
-}, function(error){
-  console.log("Error: "+ error.code);
-});
+    //Get health value of player A
+    var playerA = defaultDatabase.ref("players/A");
+    playerA.on("value", function(data){
+        var health = data.val();
+        console.log("Health player A: "+health.health);
+    }, function(error){
+        console.log("Error: "+ error.code);
+    });
 
-//Get health value of player B
-var playerB = defaultDatabase.ref("players/B");
-playerB.on("value", function(data){
-  var health = data.val();
-  console.log("Health player B: "+health.health);
-}, function(error){
-  console.log("Error: "+ error.code);
-});
+    //Get health value of player B
+    var playerB = defaultDatabase.ref("players/B");
+    playerB.on("value", function(data){
+        var health = data.val();
+        console.log("Health player B: "+health.health);
+    }, function(error){
+        console.log("Error: "+ error.code);
+    });
 
-function updateHealthPlayerA(healthValue){
-  console.log("Updating value");
+    function updateHealthPlayerA(healthValue){
+        console.log("Updating value");
 
-  playerA.update(
-    {
-      "health":healthValue
+        playerA.update(
+            {
+                "health":healthValue
+            }
+        )
     }
-  )
-}
 
-function reset_game() {
-  defaultDatabase.ref('/moveNo').update({'moveNumber' : 0});
-  defaultDatabase.ref('/players/A').update({'health':100});
-  defaultDatabase.ref('/players/B').update({'health':100});
+    function reset_game() {
+        defaultDatabase.ref('/moveNo').update({'moveNumber' : 0});
+        defaultDatabase.ref('/players/A').update({'health':100});
+        defaultDatabase.ref('/players/B').update({'health':100});
 
 
-}
+    }
 
-reset_game();
+    reset_game();
 
 
 </script>
