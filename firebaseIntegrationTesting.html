@@ -48,7 +48,7 @@ CODE THAT GETS POSE OF PLAYER B
 ====================================
 */
 
-//Subscription to notify when number of moves changed
+//Subscription to notify when number of moves changes
 var playerMoves = defaultDatabase.ref("players/");
 playerMoves.on("child_changed", function(data){
   var moveNumber = data.val();
@@ -57,20 +57,27 @@ playerMoves.on("child_changed", function(data){
   console.log("Error: "+error.code);
 })
 
-// Testing changes
-
 //Get health value of player A
 var playerA = defaultDatabase.ref("players/A");
-playerA.once("value", function(data){
+playerA.on("value", function(data){
   var health = data.val();
-  console.log("Health: "+health.health);
+  console.log("Health player A: "+health.health);
 }, function(error){
   console.log("Error: "+ error.code);
 });
 
-updateHealth(80);
+//Get health value of player B
+var playerB = defaultDatabase.ref("players/B");
+playerA.on("value", function(data){
+  var health = data.val();
+  console.log("Health player B: "+health.health);
+}, function(error){
+  console.log("Error: "+ error.code);
+});
 
-function updateHealth(healthValue){
+updateHealthPlayerA(80);
+
+function updateHealthPlayerA(healthValue){
   console.log("Updating value");
 
   playerA.update(
@@ -79,12 +86,6 @@ function updateHealth(healthValue){
     }
   )
 }
-
-// var playersRef = defaultDatabase.ref("moves/");
-// playersRef.on("child_changed", function(data) {
-//    var moveData = data.val();
-//    console.log("Move number: " + moveData.moveNumber);
-// });
 
 </script>
 
