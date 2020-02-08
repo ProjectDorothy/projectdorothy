@@ -12,11 +12,12 @@ const myLogger = function (req, res, next) {
     console.log('LOGGED');
     next()
 };
-
+app.set('view engine', 'ejs');
 app.use(myLogger);
 
 app.get('/', function (req, res) {
-    res.send('Hello World!')
+    // res.send('Hello World!')
+    res.render('index');
 });
 
 // app.put('/put', (req,res) => {
