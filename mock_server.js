@@ -21,4 +21,8 @@ app.put('/put', (req,res) => {
     res.send(student)
 });
 
+app.patch('/put', (req,res) => {
+
+});
+
 app.listen(3000);
