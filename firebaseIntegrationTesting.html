@@ -24,7 +24,21 @@ const firebaseConfig = {
   };
   firebase.initializeApp(firebaseConfig);
 
-  var defaultDatabase = firebase.database();
+
+var moveRef = firebase.database().ref("moves/");
+moveRef.on("child_changed", function(data) {
+  var moveInfo = data.val();
+   console.log("Move Number :"+moveInfo.moveNumber);
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+
+
+// var playersRef = firebase.database().ref("moves/");
+// playersRef.on("child_changed", function(data) {
+//    var moveData = data.val();
+//    console.log("Move number: " + moveData.moveNumber);
+// });
 
 </script>
 
