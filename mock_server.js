@@ -21,8 +21,8 @@ app.put('/put', (req,res) => {
     res.send(student)
 });
 
-app.patch('/put', (req,res) => {
-
+app.get('/playerA', function (req, res) {
+    res.send('Only bad boys do bad commits')
 });
 
 app.listen(3000);
