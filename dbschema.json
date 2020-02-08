@@ -8,8 +8,7 @@
         },
         "potion":{
             "damage":30
-        },
-        "moveNumber":0
+        }
     },
     "players":{
         "A":{
@@ -17,6 +16,7 @@
         },
         "B":{
             "health":100
-        }
+        },
+        "moveNumber":0
     }
 }
