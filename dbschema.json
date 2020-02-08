@@ -1,0 +1,17 @@
+{
+    "moves" : {
+        "powermove":{
+            "damage":10
+        },
+        "simpleAttack":{
+            "damage":20
+        },
+        "potion":{
+            "damage":30
+        },
+        "health":{
+            "damage":10
+        },
+        "moveNumber":0
+    }
+}
