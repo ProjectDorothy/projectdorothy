@@ -6,6 +6,8 @@ const fs = require('fs');
 let rawdata = fs.readFileSync('mock_json.json');
 let student = JSON.parse(rawdata);
 
+var port = process.env.PORT || 8080;
+
 const myLogger = function (req, res, next) {
     console.log('LOGGED');
     next()
@@ -29,4 +31,4 @@ app.get('/playerB', function (req, res) {
     res.send('Player B is a bad boy tho')
 });
 
-app.listen(3000);
+app.listen(port);
