@@ -3,8 +3,8 @@ const app = express();
 
 //make mock json file for testing
 const fs = require('fs');
-let rawdata = fs.readFileSync('mock_json.json');
-let student = JSON.parse(rawdata);
+// let rawdata = fs.readFileSync('mock_json.json');
+// let student = JSON.parse(rawdata);
 
 var port = process.env.PORT || 8080;
 
@@ -19,9 +19,9 @@ app.get('/', function (req, res) {
     res.send('Hello World!')
 });
 
-app.put('/put', (req,res) => {
-    res.send(student)
-});
+// app.put('/put', (req,res) => {
+//     res.send(student)
+// });
 
 app.get('/playerA', function (req, res) {
     res.send('Only bad boys do bad commits')
