@@ -52,7 +52,7 @@ CODE THAT GETS POSE OF PLAYER B
 var playerMoves = defaultDatabase.ref("moveNo/");
 playerMoves.on("value", function(data){
   var moveNumber = data.val();
-  console.log("Number of moves: "+moveNumber); 
+  console.log("Number of moves: "+moveNumber.moveNumber); 
 }, function(error){
   console.log("Error: "+error.code);
 })
