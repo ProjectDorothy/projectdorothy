@@ -68,7 +68,7 @@ playerA.on("value", function(data){
 
 //Get health value of player B
 var playerB = defaultDatabase.ref("players/B");
-playerA.on("value", function(data){
+playerB.on("value", function(data){
   var health = data.val();
   console.log("Health player B: "+health.health);
 }, function(error){
