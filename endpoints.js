@@ -6,18 +6,18 @@ const xhttp2 = new XMLHttpRequest();
 
 const url = "http://localhost:3000";
 
-
-xhttp.open("GET",url,true);
+/*xhttp.open("GET",url,true);
 xhttp.onload = function () {
     console.log('get req got got!')
 };
-// xhttp.onprogress = function () {console.log('change')};
-xhttp.send();
-
-/*
-xhttp.open("GET",url,true);
-xhttp.onload = function () {
-    console.log('get req got got!')
-};
-// xhttp.onprogress = function () {console.log('change')};
 xhttp.send();*/
+
+
+xhttp2.open("PUT",url+'/put',true);
+xhttp2.onload = function () {
+    console.log('put req works')
+
+    let stuff = JSON.parse(this.responseText);
+    console.log(stuff)
+};
+xhttp2.send();
