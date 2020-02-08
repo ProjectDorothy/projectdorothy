@@ -16,7 +16,9 @@
         },
         "B":{
             "health":100
-        },
+        }
+    },
+    "moveNo":{
         "moveNumber":0
     }
 }
