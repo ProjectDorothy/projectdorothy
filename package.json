@@ -1,0 +1,23 @@
+{
+  "name": "project-dorothy",
+  "version": "1.0.0",
+  "description": "AR combat game",
+  "main": "endpoints.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectDorothy/projectdorothy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProjectDorothy/projectdorothy/issues"
+  },
+  "homepage": "https://github.com/ProjectDorothy/projectdorothy#readme",
+  "dependencies": {
+    "firebase": "^7.8.1",
+    "express": "~4.9.8"
+  }
+}
