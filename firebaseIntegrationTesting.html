@@ -75,8 +75,6 @@ playerB.on("value", function(data){
   console.log("Error: "+ error.code);
 });
 
-// updateHealthPlayerA(80);
-
 function updateHealthPlayerA(healthValue){
   console.log("Updating value");
 
@@ -88,14 +86,10 @@ function updateHealthPlayerA(healthValue){
 }
 
 function reset_game() {
-  const updates = {};
-  updates['/moveNo/moveNumber'] = 0;
-  updates['/players/A/health'] = 100;
-  updates['/players/B/health'] = 100;
+  defaultDatabase.ref('/moveNo').update({'moveNumber' : 0});
+  defaultDatabase.ref('/players/A').update({'health':100});
+  defaultDatabase.ref('/players/B').update({'health':100});
 
-  console.log('Game Reset!');
-
-  return defaultDatabase.ref().update(updates);
 
 }
 
