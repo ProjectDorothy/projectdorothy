@@ -25,4 +25,8 @@ app.get('/playerA', function (req, res) {
     res.send('Only bad boys do bad commits')
 });
 
+app.get('/playerB', function (req, res) {
+    res.send('Player B is a bad boy tho')
+});
+
 app.listen(3000);
