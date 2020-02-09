@@ -27,6 +27,14 @@ app.get('/', (req, res) => {
     const hours = (date.getHours() % 12) + 1;  // London is UTC + 1hr;
     res.json({bongs: 'BONG '.repeat(hours)});
   });
+
+  app.get('/playerA', function (req, res) {
+    res.send('Only bad boys do bad commits')
+});
+
+app.get('/playerB', function (req, res) {
+    res.send('Player B is a bad boy tho')
+});
   
   exports.app = functions.https.onRequest(app);
   
