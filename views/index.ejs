@@ -8,15 +8,28 @@
     <!-- load bootstrap and our own personal stylesheet -->
     <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Player A</title>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
 
 </head>
 <body>
 
 <div class="container">
     <div class="jumbotron">
-        <h1>This Is Heroku Awesome!</h1>
-        <p>This is the sample of a tutorial on <a href="https://scotch.io">scotch.io</a></p>
-        <a href="https://scotch.io/tutorials/" class="btn btn-primary btn-lg">View the Tutorial</a>
+        <script src="firebase_functions.js"></script>
+        <button class="btn btn-primary btn-lg" type="button" onclick="updateHealthPlayerA(12)">Click Me!</button>
     </div>
 </div>
 
