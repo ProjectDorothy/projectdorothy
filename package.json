@@ -4,7 +4,7 @@
   "description": "AR combat game",
   "main": "endpoints.js",
   "scripts": {
-    "start":"node mock_server.js"
+    "start": "node mock_server.js"
   },
   "repository": {
     "type": "git",
